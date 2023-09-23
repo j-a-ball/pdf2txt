@@ -6,6 +6,7 @@ __version__ = "Fall 2023"
 # !pip install pdf2image PIL pytesseract
 
 from pdf2image import convert_from_path
+#pdf2image req'd PIL due to error
 from PIL import Image
 import pytesseract
 import os
