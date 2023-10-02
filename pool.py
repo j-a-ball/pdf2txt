@@ -19,8 +19,4 @@ if __name__ == "__main__":
     # Convert the PDFs to text in parallel processes
     with Pool(args.n_workers) as p:
         txts = list(tqdm(p.imap(pdf2txt.convert, pdf_files), total=len(pdf_files)))
-    # Save the entire corpus
-    with open(os.path.join(args.txt_dir, "corpus.txt"), "w") as outfile:
-        # <sep> is used as a separator between pages, so docs will be separated by <sep><sep>
-        outfile.write("<sep><sep>".join(txts))
     print(f"\nDone! Converted {len(txts)} PDFs to text files.")
