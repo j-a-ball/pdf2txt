@@ -24,7 +24,7 @@ class pdf2txt():
         txt_list = []
         for page_data in doc:
             txt_list.append(pytesseract.image_to_string(page_data))
-        txt = "<sep>".join(txt_list)
+        txt = "<newpage>".join(txt_list)
         with open(os.path.join(self.txt_dir, f"{pdf_file[:-4]}.txt"), "w") as outfile:
             outfile.write(txt)
         return txt
